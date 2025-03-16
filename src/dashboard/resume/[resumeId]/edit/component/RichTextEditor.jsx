@@ -9,8 +9,8 @@ import { toast } from 'sonner'
 
   
 
-function RichTextEditor({RichTextEditorChange,index}) {
-    const [value, setvalue] = useState()
+function RichTextEditor({RichTextEditorChange,index,defaultValue}) {
+    const [value, setvalue] = useState(defaultValue)
     const PROMPT='position titile: {positionTitle} , Depends on position title give me 5-7 bullet points for my experience in resume (Please do not add experince level and No JSON array) , give me result in HTML tags'
     const {resumeInfo,setresumeInfo}=useContext(ResumeInfoContext)
   const [summeryLoading, setsummeryLoading] = useState(false);

@@ -12,6 +12,7 @@ import { toast } from 'sonner'
 
 
 function Skills() {
+    const {resumeId}=useParams()
     const [skillsList, setskillsList] = useState([
         {
             name:'',
@@ -45,6 +46,17 @@ function Skills() {
                 skills:skillsList
             }
         }
+        GlobalApi.UpdateResumeDetail(resumeId,data).then((resp)=>{
+            setloading(false)
+            console.log(resp)
+            toast('Details updated')
+            // setresumeInfo({...resumeInfo,
+            //     skills:skillsList
+            // })
+        },(error) => {
+            setloading(false)
+            toast('Something went wrong')
+        })
       
 
        
