@@ -9,6 +9,7 @@ import Dashboard from './dashboard'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { Edit } from 'lucide-react'
 import EditResume from './dashboard/resume/[resumeId]/edit'
+import ViewResume from './my-resume/[resumeId]'
 
 
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path:'/auth/sign-in',
     element:<SignInPage/>
+  },
+  {
+    path:'/my-resume/:resumeId/view',
+    element:<ViewResume/>
   },
 ])
 

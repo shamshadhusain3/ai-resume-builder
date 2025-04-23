@@ -34,6 +34,7 @@ function AddResume() {
             data:{
                 title:resumeTitle,
                 resumeId,
+                themeColor:'#ff6666',
                 userEmail:user?.primaryEmailAddress?.emailAddress,
                 userName:user?.fullName
             }
@@ -42,7 +43,7 @@ function AddResume() {
             console.log(resp)
             if (resp) {
                 setloading(false)
-                navigate('/dashboard/resume/'+resp.data._id+'/edit')
+                navigate('/dashboard/resume/'+resp.data.data.documentId+'/edit')
 
             }
         },(error)=>setloading(false))

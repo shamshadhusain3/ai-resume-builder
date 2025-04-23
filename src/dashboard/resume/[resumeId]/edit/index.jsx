@@ -14,15 +14,15 @@ function EditResume() {
     const GetResumeInfo=async()=>{
      try {
       console.log('first')
-      // console.log(params.resumeId,'idresuem')
+      console.log(params.resumeId,'idresuem')
 
     //  .then(resp=>{
     //     console.log('responssee', resp.data.data)
-    //     setresumeInfo(resp.data.data)
-
+    
     //   })
-    const res=await  GlobalApi.GetResumeById('f5de2541-c08e-400a-b5f6-8ab94ebc0be0');
-   console.log( res.data)
+    const res=await  GlobalApi.GetResumeById(params.resumeId);
+    console.log( res.data.data)
+        setresumeInfo(res.data.data)
      } catch (error) {
       console.log(error)
      }
@@ -32,7 +32,7 @@ function EditResume() {
     useEffect(()=>{
         console.log(params.resumeId)
         setresumeInfo(dummy)
-        // GetResumeInfo()
+        GetResumeInfo()
     },[])
   return (
     <ResumeInfoContext.Provider value={{resumeInfo, setresumeInfo}}>

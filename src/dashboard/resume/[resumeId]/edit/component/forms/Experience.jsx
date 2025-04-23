@@ -27,7 +27,12 @@ function Experience() {
      formField
     ])
     const params=useParams()
-
+    useEffect(()=>{
+        if(resumeInfo?.experience){
+            setexperienceList(resumeInfo.experience)
+        }
+    },[ ])
+// console.log('experience',resumeInfo.experience)
     const handleChange=(index,event)=>{
         const newEntries=experienceList.slice()
         const {name,value}=event.target;
@@ -58,7 +63,7 @@ function Experience() {
         setloading(true)
         const data={
             data:{
-                experience:experienceList
+                experience:experienceList.map(({id ,...rest})=>rest)
             }
         }
 
@@ -92,34 +97,36 @@ function Experience() {
                     <div className="grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg">
                         <div className="">
                             <label className='text-xs' htmlFor="title">Position Title</label>
-                            <Input name='title' id='title' onChange={(event)=>handleChange(index,event)} />
+                            <Input name='title' id='title' defaultValue={item?.title} onChange={(event)=>handleChange(index,event)} />
                         </div>
                         <div className="">
                             <label className='text-xs' htmlFor="companyName">Company Name</label>
-                            <Input name='companyName' id='companyName' onChange={(event)=>handleChange(index,event)} />
+                            <Input name='companyName' id='companyName' defaultValue={item?.companyName} onChange={(event)=>handleChange(index,event)} />
                         </div>
                         <div className="">
                             <label className='text-xs' htmlFor="city">City</label>
-                            <Input name='city' id='city' onChange={(event)=>handleChange(index,event)} />
+                            <Input name='city' id='city' defaultValue={item?.city} onChange={(event)=>handleChange(index,event)} />
                         </div>
                         <div className="">
                             <label className='text-xs' htmlFor="state">State</label>
-                            <Input name='state' id='state' onChange={(event)=>handleChange(index,event)} />
+                            <Input name='state' id='state' defaultValue={item?.state} onChange={(event)=>handleChange(index,event)} />
                         </div>
                         <div className="">
                             <label className='text-xs' htmlFor="startDate">Start Date</label>
-                            <Input type='date' name='startDate' id='startDate' onChange={(event)=>handleChange(index,event)} />
+                            <Input type='date' name='startDate' id='startDate' defaultValue={item?.startDate} onChange={(event)=>handleChange(index,event)} />
                         </div>
                         <div className="">
                             <label className='text-xs' htmlFor="endDate">End Date</label>
-                            <Input type='date' name='endDate' id='endDate' onChange={(event)=>handleChange(index,event)} />
+                            <Input type='date' name='endDate' id='endDate' defaultValue={item?.endDate} onChange={(event)=>handleChange(index,event)} />
                         </div>
                        
                          <div className="col-span-2">
                              {/* work summery */}
                              <RichTextEditor
                              index={index}
-                             RichTextEditorChange={(e)=>handleRichChange(e,'workSummery',index)}/>
+                             RichTextEditorChange={(e)=>handleRichChange(e,'workSummery',index)}
+                             defaultValue={item?.workSummery}
+                             />
                          </div>
                     </div>
                 </div>
