@@ -60,19 +60,30 @@ const GetResumeById = async (id) => {
         const url = `user-resumes/${id}?populate=*`;
         console.log('Fetching resume by ID from:', url);
         return await axiosClient.get(url);
-        console.log(' errrrrrrrrrrrrr')
+        
     } catch (error) {
         console.error('Error fetching resume by ID:', error.response?.data || error.message);
         throw error;
     }
 };
+const DeleteResumeById = async (id) => {
+    try {
+        const url = `user-resumes/${id}`;
+        console.log('Deleting resume by ID from:', url);
+        return await axiosClient.delete(url);
+    } catch (error) {
+        console.error('Error deleting resume by ID:', error.response?.data || error.message);
+        throw error;
+    }
+}
 
 
 export default {
     CreateNewResume,
     GetUserResume,
     UpdateResumeDetail,
-    GetResumeById
+    GetResumeById,
+    DeleteResumeById
 };
 
 // import axios from "axios"

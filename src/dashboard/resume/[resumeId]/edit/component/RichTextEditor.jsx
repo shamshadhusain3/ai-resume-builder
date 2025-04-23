@@ -36,6 +36,7 @@ function RichTextEditor({RichTextEditorChange,index,defaultValue}) {
 
       } catch (error) {
         toast.error(error.message)
+        console.log('getting error')
         setsummeryLoading(false)
 
       }
