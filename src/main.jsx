@@ -17,7 +17,7 @@ import ViewResume from './my-resume/[resumeId]'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
-console.log(PUBLISHABLE_KEY,'keyyy')
+// console.log(PUBLISHABLE_KEY,'keyyy')
 if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key")
 }

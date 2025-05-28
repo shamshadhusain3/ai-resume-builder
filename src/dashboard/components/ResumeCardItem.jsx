@@ -26,18 +26,18 @@ import GlobalApi from '../../../service/GlobalApi'
 import { toast } from 'sonner'
 
 function ResumeCardItem({resume,refreshData}) {
-  console.log(resume,'card')
+  // console.log(resume,'card')
   const navigate=useNavigate()
   const {resumeId} = useParams();
   const [openAlert,setOpenAlert]=useState(false)
   const [loading, setloading] = useState(false)
-  console.log('themeColor',resume?.themeColor)
+  // console.log('themeColor',resume?.themeColor)
   let borderColor = resume?.themeColor
   
   const onDelete=()=>{
     setloading(true)
     GlobalApi.DeleteResumeById(resume.documentId).then(res=>{
-      console.log(res)
+      // console.log(res)
       toast.success('Resume Deleted')
       refreshData()
       setOpenAlert(false)
@@ -47,7 +47,7 @@ function ResumeCardItem({resume,refreshData}) {
       toast.error('Error Deleting Resume')
       setloading(false)
     })
-    console.log('delete')
+    // console.log('delete')
   }
 
  

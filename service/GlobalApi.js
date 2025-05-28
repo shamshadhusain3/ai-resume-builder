@@ -38,7 +38,7 @@ const CreateNewResume = async (data) => {
 const GetUserResume = async (userEmail) => {
     try {
         const url = `user-resumes?filters[userEmail][$eq]=${userEmail}`;
-        console.log('Fetching user resume from:', url);
+        // console.log('Fetching user resume from:', url);
         return await axiosClient.get(url);
     } catch (error) {
         console.error('Error fetching user resume:', error);
@@ -58,7 +58,7 @@ const UpdateResumeDetail = async (id, data) => {
 const GetResumeById = async (id) => {
     try {
         const url = `user-resumes/${id}?populate=*`;
-        console.log('Fetching resume by ID from:', url);
+        // console.log('Fetching resume by ID from:', url);
         return await axiosClient.get(url);
         
     } catch (error) {
@@ -69,7 +69,7 @@ const GetResumeById = async (id) => {
 const DeleteResumeById = async (id) => {
     try {
         const url = `user-resumes/${id}`;
-        console.log('Deleting resume by ID from:', url);
+        // console.log('Deleting resume by ID from:', url);
         return await axiosClient.delete(url);
     } catch (error) {
         console.error('Error deleting resume by ID:', error.response?.data || error.message);

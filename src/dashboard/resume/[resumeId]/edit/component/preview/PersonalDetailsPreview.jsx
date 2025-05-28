@@ -2,7 +2,7 @@ import React from 'react'
 
 function PersonalDetailsPreview({resumeInfo}) {
 
-  console.log(resumeInfo)
+  // console.log(resumeInfo)
   return (
     <div>
       <h2 className="font-bold text-xl text-center " style={{color:resumeInfo?.themeColor}} >{resumeInfo?.firstName + ' ' + resumeInfo?.lastName}</h2>
